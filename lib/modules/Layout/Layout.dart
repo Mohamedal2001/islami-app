@@ -18,7 +18,7 @@ class Layout extends StatefulWidget {
 
 class _LayoutState extends State<Layout> {
   int index=0;
-  List<Widget> Thepage=[
+  List<Widget>  Thepage=[
     Quranpage(),
     Haditpage(),
     Radiopage(),
