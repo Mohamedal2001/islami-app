@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 
 class Apptheme{
+  static const Color primaryColor=Color(0xFFB7935F);
 static ThemeData lightMode =ThemeData(
-  appBarTheme: AppBarTheme(
-
+dividerTheme: DividerThemeData(color: primaryColor),
+  primaryColor:primaryColor ,
+  appBarTheme: const AppBarTheme(
     titleTextStyle: TextStyle(fontSize: 30,fontWeight: FontWeight.bold,color: Colors.black,fontFamily: 'elMussiri'),
     backgroundColor: Colors.transparent
   ),
@@ -11,7 +13,7 @@ static ThemeData lightMode =ThemeData(
     bottomNavigationBarTheme:  const BottomNavigationBarThemeData(
       unselectedItemColor: Color(0xFFF8F8F8),
       type:BottomNavigationBarType.fixed ,
-      backgroundColor: Color(0xFFB7935F),
+      backgroundColor: primaryColor,
       selectedItemColor: Color(0xFF242424),
       ),
     textTheme: const TextTheme(
