@@ -21,8 +21,9 @@ class _LayoutState extends State<Layout> {
   List<Widget>  Thepage=[
     Quranpage(),
     Haditpage(),
+    Sebhapage(),
     Radiopage(),
-    Sebhapage()
+
   ];
   @override
   Widget build(BuildContext context) {
@@ -47,8 +48,9 @@ class _LayoutState extends State<Layout> {
         items: const [
        BottomNavigationBarItem(icon: ImageIcon(AssetImage('assets/image/icon_quran.png')),label: 'quran'),
        BottomNavigationBarItem(icon: ImageIcon(AssetImage('assets/image/icon_hadeth.png')),label: 'hadit'),
+          BottomNavigationBarItem(icon: ImageIcon(AssetImage('assets/image/icon_sebha.png')),label: 'sebha'),
           BottomNavigationBarItem(icon: ImageIcon(AssetImage('assets/image/icon_radio.png')),label: 'radio'),
-          BottomNavigationBarItem(icon: ImageIcon(AssetImage('assets/image/icon_sebha.png')),label: 'sebha')
+
         ],
       ) ,
       ),
