@@ -38,8 +38,6 @@ Divider(thickness: 3,),
     }),
   )
 
-
-
 ],),
 ),
 ),
