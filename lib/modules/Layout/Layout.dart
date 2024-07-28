@@ -6,6 +6,7 @@ import 'package:islami_app/modules/sebha/Sebhapage.dart';
 import 'package:islami_app/modules/quran/quranpage.dart';
 
 import '../../core/apptheme.dart';
+import '../Setting/settingPage.dart';
 
 class Layout extends StatefulWidget {
 
@@ -22,7 +23,8 @@ class _LayoutState extends State<Layout> {
     Quranpage(),
     Haditpage(),
     Radiopage(),
-    Sebhapage()
+    Sebhapage(),
+    Settingpage(),
   ];
   @override
   Widget build(BuildContext context) {
@@ -48,7 +50,8 @@ class _LayoutState extends State<Layout> {
        BottomNavigationBarItem(icon: ImageIcon(AssetImage('assets/image/icon_quran.png')),label: 'quran'),
        BottomNavigationBarItem(icon: ImageIcon(AssetImage('assets/image/icon_hadeth.png')),label: 'hadit'),
           BottomNavigationBarItem(icon: ImageIcon(AssetImage('assets/image/icon_radio.png')),label: 'radio'),
-          BottomNavigationBarItem(icon: ImageIcon(AssetImage('assets/image/icon_sebha.png')),label: 'sebha')
+          BottomNavigationBarItem(icon: ImageIcon(AssetImage('assets/image/icon_sebha.png')),label: 'sebha'),
+          BottomNavigationBarItem(icon: Icon(Icons.settings),label: 'Setting')
         ],
       ) ,
       ),
