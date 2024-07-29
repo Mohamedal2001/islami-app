@@ -15,6 +15,7 @@ class SuraContent extends StatefulWidget {
 class _SuraContentState extends State<SuraContent> {
   @override
   Widget build(BuildContext context) {
+    var them =Theme.of(context);
     var suraC = ModalRoute
         .of(context)!
         .settings
@@ -23,7 +24,7 @@ class _SuraContentState extends State<SuraContent> {
     return Container(
       decoration: const BoxDecoration(
           image: DecorationImage(
-              image: AssetImage('assets/image/default_bg.png'),
+              image: AssetImage('assets/image/dark_bg.png'),
               fit: BoxFit.cover)
       ),
       child: Scaffold(
@@ -33,7 +34,7 @@ class _SuraContentState extends State<SuraContent> {
           margin: EdgeInsets.only(top: 20, bottom: 50, left: 30, right: 30),
           decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
-              color: Color(0XFFF8F8F8).withOpacity(0.9)),
+              color: Color(0XFF141A2E).withOpacity(0.9)),
           child: Column(children: [
 
             Text(
@@ -43,7 +44,7 @@ class _SuraContentState extends State<SuraContent> {
               child: ListView.builder(
                   itemCount:listSura.length ,
                   itemBuilder: (context, index){
-                return Text('(${index+1})${listSura[index]}',textAlign: TextAlign.center,);
+                return Text('(${index+1})${listSura[index]}',textAlign: TextAlign.center,style: them.textTheme.bodySmall,);
               }),
             )
 

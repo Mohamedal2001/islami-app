@@ -19,6 +19,7 @@ class Quranpage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var them =Theme.of(context);
     return
   Column(children: [
    Image.asset('assets/image/qur2an_screen_logo.png',scale: 1.2,),
@@ -26,13 +27,14 @@ class Quranpage extends StatelessWidget {
     Row(children: [
       Expanded(child: Text(
         textAlign: TextAlign.center,
-        'عدد الايات',style:Apptheme.lightMode.textTheme.bodyMedium,)),
+        'عدد الايات',style: them.textTheme.bodyLarge,)),
       SizedBox(
           height: 50,
           child: const VerticalDivider(thickness: 3,)),
       Expanded(child: Text(
+        style: them.textTheme.bodyLarge,
         textAlign: TextAlign.center,
-        'اسم السورة',style:Apptheme.lightMode.textTheme.bodyMedium,),
+        'اسم السورة',),
 
       ),
 

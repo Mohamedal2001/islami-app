@@ -15,6 +15,7 @@ class _HaditpageState extends State<Haditpage> {
 
   @override
   Widget build(BuildContext context) {
+    var them =Theme.of(context);
 print(ListOfHadit.isEmpty);
 if(ListOfHadit.isEmpty)loadhadit();
 
@@ -24,7 +25,7 @@ if(ListOfHadit.isEmpty)loadhadit();
       children: [
         Image.asset('assets/image/hadeth_logo.png'),
         Divider(thickness: 3,),
-        Text("الاحاديث",style: Apptheme.lightMode.textTheme.bodyMedium),
+        Text("الاحاديث",style: them.textTheme.bodyMedium),
         Divider(thickness: 3,),
         Expanded(
           child: ListView.builder(
