@@ -8,7 +8,7 @@ class Radiopage extends StatelessWidget {
     return Scaffold(
       body:
       Center(
-        child: Text('Radio'),
+        child:Image.asset('assets/image/radio_image.png'),
       ),
     ) ;
   }

@@ -1,10 +1,13 @@
 
 import 'package:flutter/material.dart';
+import 'package:islami_app/core/providersetting.dart';
 import 'package:islami_app/modules/hadit/haditpage.dart';
 import 'package:islami_app/modules/radio/radio.dart';
 import 'package:islami_app/modules/sebha/Sebhapage.dart';
 import 'package:islami_app/modules/quran/quranpage.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:provider/provider.dart';
+
 import '../../core/apptheme.dart';
 import '../Setting/settingPage.dart';
 
@@ -30,10 +33,11 @@ class _LayoutState extends State<Layout> {
   @override
   Widget build(BuildContext context) {
     var lang =AppLocalizations.of(context)!;
+  ProvderSetting provider = Provider.of<ProvderSetting>(context);
     return Container(
-      decoration: const BoxDecoration(
+      decoration:  BoxDecoration(
           image: DecorationImage(
-              image:AssetImage('assets/image/dark_bg.png') ,fit: BoxFit.cover)
+              image:AssetImage(provider.BK()) ,fit: BoxFit.cover)
       ),
       child: Scaffold(
         body: Thepage[index],
@@ -55,7 +59,7 @@ class _LayoutState extends State<Layout> {
             BottomNavigationBarItem(icon: ImageIcon(AssetImage('assets/image/icon_hadeth.png')),label: lang.hadit),
             BottomNavigationBarItem(icon: ImageIcon(AssetImage('assets/image/icon_radio.png')),label: lang.radio),
             BottomNavigationBarItem(icon: ImageIcon(AssetImage('assets/image/icon_sebha.png')),label: lang.tasbeh),
-            BottomNavigationBarItem(icon: Icon(Icons.settings),label: 'Setting')
+            BottomNavigationBarItem(icon: Icon(Icons.settings),label: lang.setting)
           ],
         ) ,
       ),

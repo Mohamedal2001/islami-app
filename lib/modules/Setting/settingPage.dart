@@ -1,6 +1,9 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
+import 'package:provider/provider.dart';
+
+import '../../core/providersetting.dart';
 class Settingpage extends StatefulWidget {
     Settingpage({super.key});
 
@@ -10,6 +13,8 @@ class Settingpage extends StatefulWidget {
 
 class _SettingpageState extends State<Settingpage> {
   @override
+  String SelectLang="English";
+  String Selectitem='Light';
   final List<String> langitem = [
     'عربي',
     'English',
@@ -20,106 +25,132 @@ class _SettingpageState extends State<Settingpage> {
     'Dark',
 
   ];
-
-
   String? selectedValue;
 
   @override
   Widget build(BuildContext context) {
+    ProvderSetting provider =Provider.of<ProvderSetting>(context);
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
+        SizedBox(height: 55,),
         Padding(
-          padding: const EdgeInsets.only(top: 50),
+          padding: const EdgeInsets.all(8.0),
           child: Text('language'),
         ),
     DropdownButtonHideUnderline(
-        child: DropdownButton2<String>(
 
-          hint: Text(
-            'select',
-            style: TextStyle(
-              fontSize: 14,
-              color: Theme.of(context).hintColor,
-            ),
-          ),
-          items: langitem
-              .map(
-                  (String item) => DropdownMenuItem<String>(
-            value: item,
-            child: Text(
-              item,
-              style: const TextStyle(
-                fontSize: 14,
+        child: Container(
+          margin: EdgeInsets.all(10),
+          child: DropdownButton2<String>(
+            dropdownStyleData: DropdownStyleData(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(14),
+                color: Colors.white,
               ),
             ),
-          ))
-              .toList(),
-
-          value: selectedValue,
-          onChanged: (String? value) {
-print(value);
-setState(() {
-
-});
-          },
-          buttonStyleData:  ButtonStyleData(
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(14),
-              border: Border.all(color:Colors.black26),
-              color:Colors.white
-            ),
-            padding: EdgeInsets.symmetric(horizontal: 50),
-
-          ),
-
-        ),
-      ),
-        Padding(
-          padding: const EdgeInsets.only(top: 50),
-          child: Text('them'),
-        ),
-        DropdownButtonHideUnderline(
-
-          child: DropdownButton2<String>(
             hint: Text(
-              'select',
+              SelectLang,
               style: TextStyle(
                 fontSize: 14,
                 color: Theme.of(context).hintColor,
               ),
             ),
-            items: thems
+            items: langitem
                 .map(
                     (String item) => DropdownMenuItem<String>(
-
-                  value: item,
-                  child: Text(
-                    item,
-                    style: const TextStyle(
-                      fontSize: 14,
-                    ),
-                  ),
-                ))
+          
+              value: item,
+              child: Text(
+                item,
+                style: const TextStyle(
+                  fontSize: 14,
+                ),
+              ),
+            ))
                 .toList(),
-            value: selectedValue,
+          
+          
             onChanged: (String? value) {
-              print(value);
-              setState(() {
-
-              });
+              SelectLang=value!;
+          if(value=="عربي"){
+            provider.changLanguage('ar');
+          }
+          if(value=="English"){
+            provider.changLanguage('en');
+          }
             },
             buttonStyleData:  ButtonStyleData(
-    decoration: BoxDecoration(
-      color: Colors.white,
-    borderRadius: BorderRadius.circular(14),
-    border: Border.all(
-    color: Colors.black26,
-    ),
-    ),
-              padding: EdgeInsets.symmetric(horizontal: 60),
-
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(14),
+                border: Border.all(color:Colors.black26),
+                color:Colors.white
+              ),
+          
+          
             ),
-            menuItemStyleData: const MenuItemStyleData(
+          
+          ),
+        ),
+      ),
+        SizedBox(height: 55,),
+        Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Text('them'),
+        ),
+        DropdownButtonHideUnderline(
+
+          child: Container(
+            margin: EdgeInsets.all(10),
+            child: DropdownButton2<String>(
+
+              hint: Text(
+                Selectitem,
+                style: TextStyle(
+                  fontSize: 14,
+                  color: Theme.of(context).hintColor,
+                ),
+              ),
+              items: thems
+                  .map(
+                      (String item) => DropdownMenuItem<String>(
+
+                    value: item,
+                    child: Text(
+                      item,
+                      style: const TextStyle(
+                        fontSize: 14,
+                      ),
+                    ),
+                  ))
+                  .toList(),
+
+              onChanged: (String? value) {
+                     Selectitem=value!;
+                if(value=="Dark"){
+                  provider.changthem(ThemeMode.dark);
+                }
+                if(value=="Light"){
+                  provider.changthem(ThemeMode.light);
+                }
+              },
+              buttonStyleData:  ButtonStyleData(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                borderRadius: BorderRadius.circular(14),
+                border: Border.all(
+                color: Colors.black26,
+                ),
+                ),
+
+
+              ),
+              dropdownStyleData: DropdownStyleData(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(14),
+                  color: Colors.white,
+                ),
+              ),
 
             ),
           ),
