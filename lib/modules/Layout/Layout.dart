@@ -45,6 +45,7 @@ class _LayoutState extends State<Layout> {
           automaticallyImplyLeading: false,
           title:  Text(lang.islami),),
         bottomNavigationBar:BottomNavigationBar(
+
           onTap: (value){
             index=value;
             setState(() {
