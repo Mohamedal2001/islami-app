@@ -9,10 +9,18 @@ import 'package:provider/provider.dart';
 import 'core/apptheme.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
+import 'modules/radio/Api/RadioApi.dart';
+import 'modules/radio/RadioProvider/RadioProvider.dart';
+
 void main() {
+  RadioApi().getRadio();
   runApp(
-  ChangeNotifierProvider(
-    create: (context)=>ProvderSetting(),
+  MultiProvider(
+    providers: [
+      ChangeNotifierProvider(create:(context)=>ProvderSetting()),
+  ChangeNotifierProvider(create:(context)=>RdioProvider())
+    ],
+
     child: home(),
   )
   );
